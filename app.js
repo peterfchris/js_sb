@@ -33,9 +33,9 @@
 
 // Regular Expressions - Eval functions
 
-let re;
-re = /hello/
-re = /hello/i //i = case insensitive
+// let re;
+// re = /hello/
+// re = /hello/i //i = case insensitive
 // re = /hello/g //Global search
 
 // console.log(re)
@@ -67,3 +67,37 @@ re = /hello/i //i = case insensitive
 // const str = 'Hello there'
 // const newStr = str.replace(re, 'Hi')
 // console.log(newStr)
+
+// Metacharacter symbols
+
+let re;
+// literal characters
+re = /hello/
+re = /hello/i
+
+// metacharacter symbols
+re = /^h/i  // must start with
+re = /d$/i  // must end with
+re = /^hello$/i  // must start and end with
+re = /h.llo/i  // matches any ONE character
+re = /h*llo/i  // matches any character 0 or more times
+re = /gre?a?y/i //optional character
+re = /gre?a?y\?/i //escape character
+
+
+// string to match
+const str = 'Hello'
+
+// Log results
+const result = re.exec(str)
+console.log(result)
+
+function reTest(re, str) {
+  if(re.test(str)){
+    console.log(`${str} matches ${re.source}`)
+  } else {
+    console.log(`${str} does NOT match ${re.source}`)
+  }
+}
+
+reTest(re, str)
